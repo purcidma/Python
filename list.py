@@ -1,6 +1,6 @@
 #Create list
 
-List = [Women", "who","Code" ]
+List = ["Women", "who","Code" ]
 
 #Reverse order
 List.reverse()
