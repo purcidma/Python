@@ -1,7 +1,13 @@
-import requests
-#r = requests.post('http://bugs.python.org', data={'@number': 18061, '@type': 'issue', '@action': 'show'})
-in_values = {'number' : 18061, 'type': 'issue', 'action':'show'}
-r = requests.post('http://bugs.python.org',data = in_values)
-print(r.status_code, r.reason)
-
-print(r.text[:300] + '...')
+URL = "https://maps.googleapis.com/maps/api/geocode/json"
+location = "Osmania University"
+PARAMS = {'address':location}
+ 
+response = requests.get(url = URL, params = PARAMS)
+data = response.json()
+ 
+latitude = data['results'][0]['geometry']['location']['lat']
+longitude = data['results'][0]['geometry']['location']['lng']
+formattedAddress = data['results'][0]['formatted_address']
+ 
+print("Latitude : %snLongitude : %snAddress of the location : %s"
+    %(latitude, longitude,formattedAddress))
