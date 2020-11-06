@@ -1,3 +1,5 @@
+import requests
+
 URL = "https://maps.googleapis.com/maps/api/geocode/json"
 location = "Osmania University"
 PARAMS = {'address':location}
