@@ -1,27 +1,21 @@
-import turtle 
-import math 
-import colorsys 
- 
-phi = 180 * (3 - math.sqrt(5)) 
- 
-t = turtle.Pen() 
-t.speed(0) 
- 
-def square(t, size): 
-    for tmp in range(0,4): 
-        t.forward(size) 
-        t.right(90) 
- 
- 
-num = 200 
- 
-for x in reversed(range(0, num)): 
-    t.fillcolor(colorsys.hsv_to_rgb(x/num, 1.0, 1.0)) 
-    t.begin_fill() 
-    t.circle(5 + x, None, 11) 
-    square(t, 5 + x) 
-    t.end_fill() 
-    t.right(phi) 
-    t.right(.8) 
- 
-turtle.mainloop() 
+def check(n): 
+	for i in range(2,n): 
+		if n%i == 0: 
+			return False 
+	return True 
+n = int(input("Enter the Number: ")) 
+print(str(n)+" = ",end='') 
+for i in range (2,n+1): 
+	c = 0 
+	if check(i) == True: 
+		while True: 
+			if(n%i == 0): 
+				n /= i 
+				c+= 1 
+			else: 
+				break 
+		if c == 1: 
+			print(str(i)+" x ",end='') 
+		elif c !=0: 
+			print(str(i)+"^"+str(c)+" x ",end='') 
+print(" \b\b\b ") 
